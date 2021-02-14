@@ -5,6 +5,6 @@ public class Data{
 	double[] temperaturas;
 	
 	public Data() {
-		temperaturas = new double[32];
+		temperaturas = new double[33];
 	}
 }

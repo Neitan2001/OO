@@ -54,7 +54,7 @@ public class q1_2exercicio_2 {
 	        }
 	    } else {
 	        // Mes invalido
-	        System.out.println("Data Inválida");
+	        System.out.println("Data Inválida\n");
 	    }
 	}
         

@@ -123,7 +123,7 @@ public class Main {
 	public static void InserirTemperaturas(Data [] datas, int [] quantVetores, int quantDias) {
 		Scanner ler = new Scanner(System.in);
 		for (int i = 0; i < quantDias; i++) {
-			System.out.print("Digite a média de temperatura do dia " + (i+1) + "º: ");
+			System.out.print("Digite a média de temperatura do dia " + (i+1) + "º: \n");
 			datas[quantVetores[0]].temperaturas[i] = ler.nextDouble();
 		}
 	}
