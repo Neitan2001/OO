@@ -10,6 +10,10 @@ public class Usuario {
 		cpf = c;
 	}
 	
+	public String toString() {
+		return "Nome do Dono: " + nome + ", idade do dono: " + idade;
+	}
+	
 	public String getNome() {
 		return nome;
 	}

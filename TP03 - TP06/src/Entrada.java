@@ -4,8 +4,8 @@ public abstract class Entrada {
 	protected Date data;
 	protected String descricao;
 	protected String tipo;
-	
-	
+	protected Conta conta;
+
 	public Date getData() {
 		return data;
 	}
@@ -28,6 +28,14 @@ public abstract class Entrada {
 	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 	
 }
