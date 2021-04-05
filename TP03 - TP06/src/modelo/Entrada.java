@@ -1,3 +1,4 @@
+package modelo;
 import java.util.Date;
 
 public abstract class Entrada {
