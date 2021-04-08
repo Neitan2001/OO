@@ -5,8 +5,10 @@ import java.util.Date;
 public class ControleRecebimento {
 	private Recebimento[] recebimentos;
 	private int numRecebimentos;
+	private ControleConta controlC;
 	
-	public ControleRecebimento(Conta c) {
+	public ControleRecebimento() {
+		Conta c = controlC.getConta();
 		recebimentos = c.getRecebimentosCadastrados();
 		numRecebimentos = c.getNumRecebimentos();
 		
@@ -22,7 +24,7 @@ public class ControleRecebimento {
 			return false;
 		} else {
 			
-			Conta c = recebimentos[i].getConta();
+			Conta c = controlC.getConta();
 			Date d = new Date();
 			Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Integer.parseInt(dadosRecebimento[3]), c);
 			c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
