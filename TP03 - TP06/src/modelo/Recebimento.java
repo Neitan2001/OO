@@ -12,16 +12,8 @@ public class Recebimento extends Entrada {
 		conta = c;
 	}
 	
-	public void adicionar() {
-		int qtd;
-		Conta c = this.getConta();
-		qtd = c.getNumRecebimentos();
-		c.setDinheiroRecebido(this, qtd);
-		c.setNumRecebimentos(qtd+1);
-	}
-	
 	public String toString() {
-		return "Descrição do Recebimento: " + descricao + ", valor do Recebimento: " + dinheiroRecebido;
+		return "Descrição do Recebimento: " + descricao + ", valor do Recebimento: R$ " + dinheiroRecebido;
 	}
 	
 	public double getDinheiroRecebido() {

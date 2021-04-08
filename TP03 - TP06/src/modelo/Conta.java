@@ -58,6 +58,11 @@ public class Conta {
 		this.recebimentosCadastrados[i] = dinR;
 	}
 	
+	public void inserirEditarRecebimento(Recebimento r, int pos) {
+		this.recebimentosCadastrados[pos] = r;
+		if(pos == numRecebimentos) numRecebimentos++;
+	}
+	
 	public Despesa[] getDespesasCadastradas() {
 		return despesasCadastradas;
 	}
@@ -72,6 +77,11 @@ public class Conta {
 	
 	public void setDinheiroGasto(Despesa dinG, int i) {
 		this.despesasCadastradas[i] = dinG;
+	}
+	
+	public void inserirEditarDespesa(Despesa d, int pos) {
+		this.despesasCadastradas[pos] = d;
+		if(pos == numDespesas) numDespesas++;
 	}
 	
 	public int getNumDespesas() {
