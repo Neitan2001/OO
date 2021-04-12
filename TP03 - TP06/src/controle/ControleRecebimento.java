@@ -7,10 +7,10 @@ import java.util.Date;
 public class ControleRecebimento {
 	private Recebimento[] recebimentos;
 	private int numRecebimentos;
-	private ControleConta controlC = new ControleConta();
-	private Conta c = controlC.getConta();
+	private Conta c;
 	
-	public ControleRecebimento() {
+	public ControleRecebimento(ControleConta controlC) {
+		Conta c = controlC.getConta();
 		recebimentos = c.getRecebimentosCadastrados();
 		numRecebimentos = c.getNumRecebimentos();
 		

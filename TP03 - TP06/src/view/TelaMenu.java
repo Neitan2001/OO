@@ -12,7 +12,8 @@ public class TelaMenu implements ActionListener {
 	private static JButton despesas = new JButton("Despesas");
 	private static JButton usuario = new JButton("Usuario");
 	private static JLabel saldo = new JLabel("O seu saldo é: R$200,00");
-	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento();
+	public static ControleConta controlC = new ControleConta();
+	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento(controlC);
 	
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
