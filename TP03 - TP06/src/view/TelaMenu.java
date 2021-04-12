@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import controle.*;
 
 public class TelaMenu implements ActionListener {
 	private static JFrame janela = new JFrame("Controle Financeiro");
@@ -11,6 +12,7 @@ public class TelaMenu implements ActionListener {
 	private static JButton despesas = new JButton("Despesas");
 	private static JButton usuario = new JButton("Usuario");
 	private static JLabel saldo = new JLabel("O seu saldo é: R$200,00");
+	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento();
 	
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -47,7 +49,10 @@ public class TelaMenu implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Botão clicado");
+		Object src = e.getSource();
+		
+		if(src == recebimentos)
+			new TelaEntrada().mostrarDados(Dadosrecebimento, null, 1);
 	}
 
 }

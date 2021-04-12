@@ -1,5 +1,8 @@
 package modelo;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Conta {
 	private String nome;
 	private Usuario dono;
@@ -12,6 +15,15 @@ public class Conta {
 	public Conta (String n, Usuario d) {
 		nome = n;
 		dono = d;
+	}
+	
+	public void fillWithSomeData() {
+		Date d = Calendar.getInstance().getTime();
+		Recebimento r1 = new Recebimento(d, "Recebimento01", "Salário", 30, this);
+		Recebimento r2 = new Recebimento(d, "Recebimento02", "Salário", 50, this);
+		this.setDinheiroRecebido(r1, 0);
+		this.setDinheiroRecebido(r2, 1);
+		this.setNumRecebimentos(2);
 	}
 	
 	public String toString() {

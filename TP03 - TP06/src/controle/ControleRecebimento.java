@@ -1,14 +1,16 @@
 package controle;
 import modelo.*;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class ControleRecebimento {
 	private Recebimento[] recebimentos;
 	private int numRecebimentos;
-	private ControleConta controlC;
+	private ControleConta controlC = new ControleConta();
+	private Conta c = controlC.getConta();
 	
 	public ControleRecebimento() {
-		Conta c = controlC.getConta();
 		recebimentos = c.getRecebimentosCadastrados();
 		numRecebimentos = c.getNumRecebimentos();
 		
@@ -24,13 +26,35 @@ public class ControleRecebimento {
 			return false;
 		} else {
 			
-			Conta c = controlC.getConta();
-			Date d = new Date();
+			Date d = Calendar.getInstance().getTime();
 			Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Integer.parseInt(dadosRecebimento[3]), c);
 			c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
 			return true;
 		}
 
+	}
+	
+	public boolean removerRecebimento(int i) {
+		String recebimentoRemovido = c.getDinheiroRecebido(i).getDescricao();
+		
+		if(i == (c.getNumRecebimentos()-1)) { //Lógica inspirada no codigo da professora para verificar se o elemento está no final da array
+			c.setNumRecebimentos(c.getNumRecebimentos()-1);
+			c.setDinheiroRecebido(null, c.getNumRecebimentos());
+			return true;
+		} else { //O elemento está no meio da array
+			int cont = 0;
+			while(c.getDinheiroRecebido(cont).getDescricao().compareTo(recebimentoRemovido) != 0) {
+				cont++;
+			}
+			
+			for(int j = cont; j < c.getNumRecebimentos() -1; j++) {
+				c.setDinheiroRecebido(null, j);
+				c.setDinheiroRecebido(c.getDinheiroRecebido(j+1), j);
+			}
+			c.setDinheiroRecebido(null, c.getNumRecebimentos());
+			c.setNumRecebimentos(c.getNumRecebimentos()-1);
+			return true;
+		}
 	}
 	
 	public String[] getDescricoesValor() {
