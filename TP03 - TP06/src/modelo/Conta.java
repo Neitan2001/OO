@@ -19,11 +19,17 @@ public class Conta {
 	
 	public void fillWithSomeData() {
 		Date d = Calendar.getInstance().getTime();
-		Recebimento r1 = new Recebimento(d, "Recebimento01", "Salário", 30, this);
-		Recebimento r2 = new Recebimento(d, "Recebimento02", "Salário", 50, this);
+		Recebimento r1 = new Recebimento(d, "Recebimento01", "Salário", 80, 0 ,this);
+		Recebimento r2 = new Recebimento(d, "Recebimento02", "Salário", 50, 1 ,this);
 		this.setDinheiroRecebido(r1, 0);
 		this.setDinheiroRecebido(r2, 1);
 		this.setNumRecebimentos(2);
+		
+		Despesa d1 = new Despesa(d, "Despesa01", "Salário", 30, 0, this);
+		Despesa d2 = new Despesa(d, "Despesa02", "Salário", 50, 1, this);
+		this.setDinheiroGasto(d1, 0);
+		this.setDinheiroGasto(d2, 1);
+		this.setNumDespesas(2);
 	}
 	
 	public String toString() {
@@ -110,36 +116,6 @@ public class Conta {
 	
 	public void setNumRecebimentos(int numRecebimentos) {
 		this.numRecebimentos = numRecebimentos;
-	}
-	
-	// Método para calcular o Saldo da Conta
-	public void calcularSaldo() {
-		double dinR = 0;
-		double dinG = 0;
-		
-		for(int i = 0; i < numRecebimentos; i++) {
-			dinR = dinR + recebimentosCadastrados[i].getDinheiroRecebido();
-		}
-		
-		for(int i = 0; i < numDespesas; i++) {
-			dinG = dinG + despesasCadastradas[i].getDinheiroGasto();
-		}
-		
-		this.setSaldo(dinR-dinG);
-	}
-	
-	// Método para consultar o extrato da conta
-	public String consultarSaldo() {
-		String saida = "***Extrato da Conta***\n";
-		
-		for(int i = 0; i < numRecebimentos; i++) {
-			saida = saida + "\n***Recebimento***\n" + recebimentosCadastrados[i].toString();
-		}
-		
-		for(int i = 0; i < numDespesas; i++) {
-			saida = saida + "\n***Despesas***\n" + despesasCadastradas[i].toString();
-		}
-		return saida;
 	}
 	
 }

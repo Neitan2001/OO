@@ -6,6 +6,7 @@ public abstract class Entrada {
 	protected String descricao;
 	protected String tipo;
 	protected Conta conta;
+	protected int id;
 
 	public Date getData() {
 		return data;
@@ -37,6 +38,14 @@ public abstract class Entrada {
 
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

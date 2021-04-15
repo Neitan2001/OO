@@ -4,11 +4,12 @@ import java.util.Date;
 public class Despesa extends Entrada{
 	private double dinheiroGasto;
 
-	public Despesa (Date d, String des, String t, double din, Conta c) {
+	public Despesa (Date d, String des, String t, double din, int i,Conta c) {
 		data = d;
 		descricao = des;
 		tipo = t;
 		dinheiroGasto = din;
+		id = i;
 		conta = c;
 	}
 	
@@ -21,7 +22,7 @@ public class Despesa extends Entrada{
 	}
 	
 	public String toString() {
-		return "Descrição do Despesa: " + descricao + ", valor do Despesa: " + dinheiroGasto;
+		return descricao + "         R$ " + dinheiroGasto;
 	}
 	
 	public double getDinheiroGasto() {

@@ -4,16 +4,17 @@ import java.util.*;
 public class Recebimento extends Entrada {
 	private double dinheiroRecebido;
 
-	public Recebimento (Date d, String des, String t, double din, Conta c) {
+	public Recebimento (Date d, String des, String t, double din, int i ,Conta c) {
 		data = d;
 		descricao = des;
 		tipo = t;
 		dinheiroRecebido = din;
+		id = i;
 		conta = c;
 	}
 	
 	public String toString() {
-		return "Descrição do Recebimento: " + descricao + ", valor do Recebimento: R$ " + dinheiroRecebido;
+		return descricao + "         R$ " + dinheiroRecebido;
 	}
 	
 	public double getDinheiroRecebido() {
