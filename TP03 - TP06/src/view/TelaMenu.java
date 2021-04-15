@@ -11,7 +11,6 @@ public class TelaMenu implements ActionListener {
 	private static JButton recebimentos = new JButton("Recebimentos");
 	private static JButton despesas = new JButton("Despesas");
 	private static JButton usuario = new JButton("Usuario");
-	private static JLabel saldo;
 	public static ControleConta controlC = new ControleConta();
 	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento(controlC);
 	public static ControleDespesa Dadosdespesa = new ControleDespesa(controlC);
@@ -24,19 +23,13 @@ public class TelaMenu implements ActionListener {
 		recebimentos.setBounds(140, 100, 150, 30);
 		despesas.setBounds(140, 150, 150, 30);
 		
-		saldo = new JLabel("O seu saldo é R$ " + controlC.getConta().getSaldo());
-		
-		saldo.setFont(new Font("Arial", Font.PLAIN, 16));
-		saldo.setBounds(120, 180, 200, 30);
-		
 		janela.setLayout(null);
 		
 		janela.add(titulo);
 		janela.add(usuario);
 		janela.add(recebimentos);
 		janela.add(despesas);
-		janela.add(saldo);
-		
+
 		janela.setSize(400, 250);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);

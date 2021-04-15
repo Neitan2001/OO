@@ -13,6 +13,7 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 	private JButton refreshRecebimento;
 	private JButton cadastroDespesa;
 	private JButton refreshDespesa;
+	private static JLabel saldo;
 	private static ControleRecebimento recebimentos;
 	private static ControleDespesa despesas;
 	private static ControleConta controlC;
@@ -31,17 +32,20 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			listaRecebimentosCadastrados = new JList<String>(listaNomes);
 			janela = new JFrame("Recebimentos");
 			titulo = new JLabel ("Recebimentos Cadastrados");
+			saldo = new JLabel("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			cadastroRecebimento = new JButton("Cadastrar");
 			refreshRecebimento = new JButton("Refresh");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 350, 30);
+			saldo.setFont(new Font("Arial", Font.PLAIN, 16));
+			saldo.setBounds(120, 180, 200, 30);
 			listaRecebimentosCadastrados.setBounds(20, 50, 250, 120);
 			listaRecebimentosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaRecebimentosCadastrados.setVisibleRowCount(10);
 			
-			cadastroRecebimento.setBounds(120, 185, 100, 30);
-			refreshRecebimento.setBounds(250, 185, 100, 30);
+			cadastroRecebimento.setBounds(120, 230, 120, 30);
+			refreshRecebimento.setBounds(250, 230, 100, 30);
 			
 			janela.setLayout(null);
 			
@@ -49,8 +53,9 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			janela.add(listaRecebimentosCadastrados);
 			janela.add(cadastroRecebimento);
 			janela.add(refreshRecebimento);
+			janela.add(saldo);
 			
-			janela.setSize(500, 250);
+			janela.setSize(500, 300);
 			janela.setVisible(true);
 			
 			cadastroRecebimento.addActionListener(this);
@@ -64,17 +69,20 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			listaDespesasCadastradas = new JList<String>(listaNomes);
 			janela = new JFrame("Despesas");
 			titulo = new JLabel ("Despesas Cadastradas");
+			saldo = new JLabel("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			cadastroDespesa = new JButton("Cadastrar");
 			refreshDespesa = new JButton("Refresh");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 350, 30);
+			saldo.setFont(new Font("Arial", Font.PLAIN, 16));
+			saldo.setBounds(120, 180, 200, 30);
 			listaDespesasCadastradas.setBounds(20, 50, 250, 120);
 			listaDespesasCadastradas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaDespesasCadastradas.setVisibleRowCount(10);
 			
-			cadastroDespesa.setBounds(120, 185, 100, 30);
-			refreshDespesa.setBounds(250, 185, 100, 30);
+			cadastroDespesa.setBounds(120, 230, 120, 30);
+			refreshDespesa.setBounds(250, 230, 100, 30);
 			
 			janela.setLayout(null);
 			
@@ -82,8 +90,9 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			janela.add(listaDespesasCadastradas);
 			janela.add(cadastroDespesa);
 			janela.add(refreshDespesa);
+			janela.add(saldo);
 			
-			janela.setSize(500, 250);
+			janela.setSize(500, 300);
 			janela.setVisible(true);
 			
 			cadastroDespesa.addActionListener(this);
@@ -116,12 +125,14 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			if(src == refreshRecebimento) {
 				listaRecebimentosCadastrados.setListData(recebimentos.getDescricoesValor(controlC));			
 				listaRecebimentosCadastrados.updateUI();
+				saldo.setText("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			}
 			
 		// Atualiza a lista de despesas mostrada no JList
 			if(src == refreshDespesa) {
 				listaDespesasCadastradas.setListData(despesas.getDescricoesValor(controlC));			
 				listaDespesasCadastradas.updateUI();
+				saldo.setText("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			}
 	 }
 		//Captura eventos relacionados ao JList
@@ -130,12 +141,12 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 		
 				if(e.getValueIsAdjusting() && src == listaRecebimentosCadastrados) {
 					new TelaDetalheEntrada().inserirEditar(3, recebimentos, despesas, controlC , this, 
-							listaRecebimentosCadastrados.getSelectedIndex());
+							recebimentos.getId(listaRecebimentosCadastrados.getSelectedIndex()));
 				}
 		
 				if(e.getValueIsAdjusting() && src == listaDespesasCadastradas) {
 					new TelaDetalheEntrada().inserirEditar(4, recebimentos, despesas, controlC , this, 
-							listaDespesasCadastradas.getSelectedIndex());
+							despesas.getId(listaDespesasCadastradas.getSelectedIndex()));
 				}
 			}
 	 
