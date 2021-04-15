@@ -17,6 +17,10 @@ public class ControleConta {
 		return c;
 	}
 	
+	public Usuario getUsuario() {
+		return u;
+	}
+	
 	// Método para calcular o Saldo da Conta
 	public void calcularSaldo() {
 		double dinR = 0;
