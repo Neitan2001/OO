@@ -10,7 +10,7 @@ public class TelaMenu implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton recebimentos = new JButton("Recebimentos");
 	private static JButton despesas = new JButton("Despesas");
-	private static JButton usuario = new JButton("Usuario");
+	private static JButton usuario = new JButton("Usuario e Conta");
 	public static ControleConta controlC = new ControleConta();
 	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento(controlC);
 	public static ControleDespesa Dadosdespesa = new ControleDespesa(controlC);
@@ -53,6 +53,9 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == despesas)
 			new TelaEntrada().mostrarDados(Dadosrecebimento, Dadosdespesa, controlC ,2);
+		
+		if(src == usuario)
+			new TelaUsuarioConta(controlC);
 	}
 
 }

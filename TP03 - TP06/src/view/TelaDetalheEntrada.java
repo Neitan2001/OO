@@ -49,6 +49,7 @@ public class TelaDetalheEntrada implements ActionListener {
 		
 		//Preenche dados com dados do recebimento clicado
 		if (op == 3) {
+			System.out.println(pos);
 			valorDescricao = new JTextField(recebimentos.getDescricao(pos), 200);
 			valorDinheiro = new JTextField(recebimentos.getValor(pos), 200);
 			valorTipo = new JTextField(recebimentos.getTipo(pos), 200);

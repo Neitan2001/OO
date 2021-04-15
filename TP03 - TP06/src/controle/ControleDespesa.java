@@ -27,7 +27,7 @@ public class ControleDespesa {
 		} else {
 			
 			Date d = Calendar.getInstance().getTime();
-			Despesa r = new Despesa(d, dadosDespesa[1], dadosDespesa[2],Integer.parseInt(dadosDespesa[3]), c.getNumDespesas() ,c);
+			Despesa r = new Despesa(d, dadosDespesa[1], dadosDespesa[2],Integer.parseInt(dadosDespesa[3]), c.getNumDespesas() - 1 ,c);
 			c.inserirEditarDespesa(r, Integer.parseInt(dadosDespesa[0]));
 			controlC.calcularSaldo();
 			return true;

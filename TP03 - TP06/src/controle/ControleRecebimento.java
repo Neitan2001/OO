@@ -27,7 +27,7 @@ public class ControleRecebimento {
 		} else {
 			
 			Date d = Calendar.getInstance().getTime();
-			Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Integer.parseInt(dadosRecebimento[3]),c.getNumRecebimentos() ,c);
+			Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Integer.parseInt(dadosRecebimento[3]),c.getNumRecebimentos() - 1 ,c);
 			c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
 			controlC.calcularSaldo();
 			return true;
