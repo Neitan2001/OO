@@ -22,7 +22,7 @@ public class Despesa extends Entrada{
 	}
 	
 	public String toString() {
-		return descricao + "         R$ " + dinheiroGasto;
+		return descricao + "   Data: "+ data + "         R$ " + dinheiroGasto;
 	}
 	
 	public double getDinheiroGasto() {

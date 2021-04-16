@@ -12,6 +12,7 @@ public class ControleUsuario {
         return u;
     }
     
+    // Método para editar informações do usuário. Atualmente há um bug que ainda não consegui consertar que depois de editar uma vez, o programa aceita informações do tipo errado
     public boolean EditarUsuario(String[] dadosUsuario, ControleConta controlC) {
 		ControleConta c = controlC;
 		if(!dadosUsuario[1].matches("[0-9]+") || !dadosUsuario[2].matches("[0-9]+") ) {

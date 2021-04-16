@@ -40,7 +40,7 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			titulo.setBounds(90, 10, 350, 30);
 			saldo.setFont(new Font("Arial", Font.PLAIN, 16));
 			saldo.setBounds(120, 180, 200, 30);
-			listaRecebimentosCadastrados.setBounds(20, 50, 250, 120);
+			listaRecebimentosCadastrados.setBounds(20, 50, 450, 120);
 			listaRecebimentosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaRecebimentosCadastrados.setVisibleRowCount(10);
 			
@@ -77,7 +77,7 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			titulo.setBounds(90, 10, 350, 30);
 			saldo.setFont(new Font("Arial", Font.PLAIN, 16));
 			saldo.setBounds(120, 180, 200, 30);
-			listaDespesasCadastradas.setBounds(20, 50, 250, 120);
+			listaDespesasCadastradas.setBounds(20, 50, 450, 120);
 			listaDespesasCadastradas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaDespesasCadastradas.setVisibleRowCount(10);
 			

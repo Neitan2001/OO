@@ -11,6 +11,7 @@ public class TelaMenu implements ActionListener {
 	private static JButton recebimentos = new JButton("Recebimentos");
 	private static JButton despesas = new JButton("Despesas");
 	private static JButton usuario = new JButton("Usuario e Conta");
+	private static JButton saldoMes = new JButton("Saldo por Mês");
 	public static ControleConta controlC = new ControleConta();
 	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento(controlC);
 	public static ControleDespesa Dadosdespesa = new ControleDespesa(controlC);
@@ -22,6 +23,7 @@ public class TelaMenu implements ActionListener {
 		usuario.setBounds(140, 50, 150, 30);
 		recebimentos.setBounds(140, 100, 150, 30);
 		despesas.setBounds(140, 150, 150, 30);
+		saldoMes.setBounds(140, 200, 150, 30);
 		
 		janela.setLayout(null);
 		
@@ -29,8 +31,9 @@ public class TelaMenu implements ActionListener {
 		janela.add(usuario);
 		janela.add(recebimentos);
 		janela.add(despesas);
+		janela.add(saldoMes);
 
-		janela.setSize(400, 250);
+		janela.setSize(400, 300);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
@@ -42,6 +45,7 @@ public class TelaMenu implements ActionListener {
 		usuario.addActionListener(menu);
 		recebimentos.addActionListener(menu);
 		despesas.addActionListener(menu);
+		saldoMes.addActionListener(menu);
 
 	}
 	
@@ -56,6 +60,22 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == usuario)
 			new TelaUsuarioConta(controlC);
+		if(src == saldoMes) {
+			JOptionPane.showMessageDialog(null,"Saldo por Mês\n "
+					+ "Janeiro: R$ " + controlC.calcularSaldoMes(0) + "\n"
+					+ "Fevereiro: R$ " + controlC.calcularSaldoMes(1) + "\n"
+					+ "Março: R$ " + controlC.calcularSaldoMes(2) + "\n"
+					+ "Abril: R$ " + controlC.calcularSaldoMes(3) + "\n"
+					+ "Maio: R$ " + controlC.calcularSaldoMes(4) + "\n"
+					+ "Junho: R$ " + controlC.calcularSaldoMes(5) + "\n"
+					+ "Julho: R$ " + controlC.calcularSaldoMes(6) + "\n"
+					+ "Agosto: R$ " + controlC.calcularSaldoMes(7) + "\n"
+					+ "Setembro: R$ " + controlC.calcularSaldoMes(8) + "\n"
+					+ "Outubro: R$ " + controlC.calcularSaldoMes(9) + "\n"
+					+ "Novembro: R$ " + controlC.calcularSaldoMes(10) + "\n"
+					+ "Dexembro: R$ " + controlC.calcularSaldoMes(11), null, 
+					JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
 }
