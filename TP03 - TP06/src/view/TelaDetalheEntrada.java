@@ -49,7 +49,6 @@ public class TelaDetalheEntrada implements ActionListener {
 		
 		//Preenche dados com dados do recebimento clicado
 		if (op == 3) {
-			System.out.println(pos);
 			valorDescricao = new JTextField(recebimentos.getDescricao(pos), 200);
 			valorDinheiro = new JTextField(recebimentos.getValor(pos), 200);
 			valorTipo = new JTextField(recebimentos.getTipo(pos), 200);
@@ -120,10 +119,14 @@ public class TelaDetalheEntrada implements ActionListener {
 				novoDado[2] = valorTipo.getText();
 				novoDado[3] = valorDinheiro.getText();
 				
-				if(opcao == 1 || opcao == 3) {
-					res = recebimentos.adicionarEditarRecebimento(novoDado, controlC);
+				if(opcao == 1 ) {
+					res = recebimentos.adicionarEditarRecebimento(novoDado, controlC, 1);
+				} else if(opcao == 3){
+					res = recebimentos.adicionarEditarRecebimento(novoDado, controlC, 2);
+				} else if(opcao == 2){
+					res = despesas.adicionarEditarDespesa(novoDado, controlC, 1);
 				} else {
-					res = despesas.adicionarEditarDespesa(novoDado, controlC);
+					res = despesas.adicionarEditarDespesa(novoDado, controlC, 2);
 				}
 				
 				if(res) {

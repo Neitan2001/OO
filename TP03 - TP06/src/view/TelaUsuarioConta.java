@@ -73,11 +73,9 @@ public class TelaUsuarioConta implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		
-		try {
-			if(src == salvar) {
+		if(src==salvar) {
+			try {
 				boolean res;
-				//JOptionPane.showMessageDialog(null, "Salvo com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
 				novoDado[0] = valorNomeUser.getText();
 				novoDado[1] = valorIdade.getText();
 				novoDado[2] = valorCpf.getText();
@@ -92,7 +90,6 @@ public class TelaUsuarioConta implements ActionListener {
 				}
 				else mensagemErroEdicao();
 				
-			}
 		} catch(NullPointerException exc1) {
 			System.out.println(exc1);
 			mensagemErroEdicao();
@@ -100,7 +97,7 @@ public class TelaUsuarioConta implements ActionListener {
 			System.out.println(exc2);
 			mensagemErroEdicao();
 		}
-			//JOptionPane.showMessageDialog(null, "Erro! Acao nao confere!", null, JOptionPane.INFORMATION_MESSAGE);
+		}
 	
 	}
 	

@@ -20,18 +20,28 @@ public class ControleRecebimento {
 	// dados[1] = Descrição
 	// dados[2] = tipo
 	// dados[3] = Dinheiro Recebido
-	public boolean adicionarEditarRecebimento(String[] dadosRecebimento, ControleConta controlC) {
+	public boolean adicionarEditarRecebimento(String[] dadosRecebimento, ControleConta controlC, int op) {
 		Conta c = controlC.getConta();
-		if(!dadosRecebimento[3].matches("[0-9]+")) {
-			return false;
-		} else {
+		
+		try {
+			if(op == 1) { //Adicionar novo elemento
+				Date d = Calendar.getInstance().getTime();
+				Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Double.valueOf(dadosRecebimento[3]),c.getNumRecebimentos(),c);
+				c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
+				controlC.calcularSaldo();
+				return true;
+			}else { //Edição de um elemento existente
+				Date d = Calendar.getInstance().getTime();
+				Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Double.valueOf(dadosRecebimento[3]),Integer.parseInt(dadosRecebimento[0]),c);
+				c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
+				controlC.calcularSaldo();
+				return true;
 			
-			Date d = Calendar.getInstance().getTime();
-			Recebimento r = new Recebimento(d, dadosRecebimento[1], dadosRecebimento[2],Integer.parseInt(dadosRecebimento[3]),c.getNumRecebimentos() - 1 ,c);
-			c.inserirEditarRecebimento(r, Integer.parseInt(dadosRecebimento[0]));
-			controlC.calcularSaldo();
-			return true;
 		}
+		} catch (NumberFormatException exc2) {
+			return false;
+		}
+			
 
 	}
 	

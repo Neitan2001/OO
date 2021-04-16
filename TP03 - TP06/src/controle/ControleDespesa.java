@@ -20,18 +20,27 @@ public class ControleDespesa {
 	// dados[1] = Descrição
 	// dados[2] = tipo
 	// dados[3] = Dinheiro Recebido
-	public boolean adicionarEditarDespesa(String[] dadosDespesa, ControleConta controlC) {
+	public boolean adicionarEditarDespesa(String[] dadosDespesa, ControleConta controlC, int op) {
 		Conta c = controlC.getConta();
-		if(!dadosDespesa[3].matches("[0-9]+")) {
-			return false;
-		} else {
+		
+			try {
+				if(op == 1) { //Adicionar novo elemento
+					Date d = Calendar.getInstance().getTime();
+					Despesa r = new Despesa(d, dadosDespesa[1], dadosDespesa[2],Double.valueOf(dadosDespesa[3]), c.getNumDespesas(),c);
+					c.inserirEditarDespesa(r, Integer.parseInt(dadosDespesa[0]));
+					controlC.calcularSaldo();
+					return true;
+				} else {
+					Date d = Calendar.getInstance().getTime();
+					Despesa r = new Despesa(d, dadosDespesa[1], dadosDespesa[2],Double.valueOf(dadosDespesa[3]), Integer.parseInt(dadosDespesa[0]) ,c);
+					c.inserirEditarDespesa(r, Integer.parseInt(dadosDespesa[0]));
+					controlC.calcularSaldo();
+					return true;
+				}
+			} catch (NumberFormatException exc2) {
+				return false;
+			}
 			
-			Date d = Calendar.getInstance().getTime();
-			Despesa r = new Despesa(d, dadosDespesa[1], dadosDespesa[2],Integer.parseInt(dadosDespesa[3]), c.getNumDespesas() - 1 ,c);
-			c.inserirEditarDespesa(r, Integer.parseInt(dadosDespesa[0]));
-			controlC.calcularSaldo();
-			return true;
-		}
 
 	}
 	
