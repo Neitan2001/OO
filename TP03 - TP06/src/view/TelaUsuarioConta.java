@@ -36,7 +36,7 @@ public class TelaUsuarioConta implements ActionListener {
 		labelNomeUser.setFont(new Font("Arial", Font.PLAIN, 16));
 		labelNomeUser.setBounds(20, 40, 80, 20);
 		janela.add(labelNomeUser);
-		////////////////////////////////////////////////////////////////////
+		
 		valorNomeUser = new JTextField(conta.getUsuario().getNome(), 200); 
 		valorNomeUser.setBounds(140, 40, 250, 20);
 		janela.add(valorNomeUser);
@@ -74,7 +74,7 @@ public class TelaUsuarioConta implements ActionListener {
 		Object src = e.getSource();
 		
 		if(src==salvar) {
-			try {
+			try { //Edição dos dados do usuário
 				boolean res;
 				novoDado[0] = valorNomeUser.getText();
 				novoDado[1] = valorIdade.getText();

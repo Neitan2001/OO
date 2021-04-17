@@ -14,7 +14,7 @@ public class Recebimento extends Entrada {
 	}
 	
 	public String toString() {
-		return descricao + "   Data: "+ data +"         R$ " + dinheiroRecebido;
+		return descricao +"         R$ " + dinheiroRecebido;
 	}
 	
 	public double getDinheiroRecebido() {

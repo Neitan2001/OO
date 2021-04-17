@@ -121,14 +121,14 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			 new TelaDetalheEntrada().inserirEditar(2, recebimentos, despesas, controlC ,this, 0);
 		 }
 		 
-		// Atualiza a lista de recebimentos mostrada no JList
+		// Atualiza a lista de recebimentos mostrada no JList e o saldo do usuário
 			if(src == refreshRecebimento) {
 				listaRecebimentosCadastrados.setListData(recebimentos.getDescricoesValor(controlC));			
 				listaRecebimentosCadastrados.updateUI();
 				saldo.setText("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			}
 			
-		// Atualiza a lista de despesas mostrada no JList
+		// Atualiza a lista de despesas mostrada no JList e o saldo do usuário
 			if(src == refreshDespesa) {
 				listaDespesasCadastradas.setListData(despesas.getDescricoesValor(controlC));			
 				listaDespesasCadastradas.updateUI();

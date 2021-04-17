@@ -60,7 +60,7 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == usuario)
 			new TelaUsuarioConta(controlC);
-		if(src == saldoMes) {
+		if(src == saldoMes) { //Mostra o saldo por mes
 			JOptionPane.showMessageDialog(null,"Saldo por Mês\n "
 					+ "Janeiro: R$ " + controlC.calcularSaldoMes(0) + "\n"
 					+ "Fevereiro: R$ " + controlC.calcularSaldoMes(1) + "\n"

@@ -74,7 +74,7 @@ public class ControleRecebimento {
 	
 	public String[] getDescricoesValor(ControleConta controlC) {
 		Conta c = controlC.getConta();
-		recebimentos = c.getRecebimentosCadastrados();
+		recebimentos = c.getRecebimentosCadastrados(); //Sempre que for pegar as descrições, é necessário atualizar a lista de elementos
 		numRecebimentos = c.getNumRecebimentos();
 		String[] s = new String[numRecebimentos];
 		for(int i = 0; i < numRecebimentos; i++) {
@@ -108,6 +108,5 @@ public class ControleRecebimento {
 	public int getId(int i) {
 		return recebimentos[i].getId();
 	}
-	
 	
 }

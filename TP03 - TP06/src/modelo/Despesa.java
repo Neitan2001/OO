@@ -13,16 +13,8 @@ public class Despesa extends Entrada{
 		conta = c;
 	}
 	
-	public void adicionar() {
-		int qtd;
-		Conta c = this.getConta();
-		qtd = c.getNumDespesas();
-		c.setDinheiroGasto(this, qtd);
-		c.setNumDespesas(qtd+1);
-	}
-	
 	public String toString() {
-		return descricao + "   Data: "+ data + "         R$ " + dinheiroGasto;
+		return descricao + "         R$ " + dinheiroGasto;
 	}
 	
 	public double getDinheiroGasto() {

@@ -19,7 +19,7 @@ public class ControleDespesa {
 	// dados[0] = posição
 	// dados[1] = Descrição
 	// dados[2] = tipo
-	// dados[3] = Dinheiro Recebido
+	// dados[3] = Dinheiro Gasto
 	public boolean adicionarEditarDespesa(String[] dadosDespesa, ControleConta controlC, int op) {
 		Conta c = controlC.getConta();
 		
@@ -72,7 +72,7 @@ public class ControleDespesa {
 	}
 	
 	public String[] getDescricoesValor(ControleConta controlC) {
-		Conta c = controlC.getConta();
+		Conta c = controlC.getConta(); //Sempre que for pegar as descrições, é necessário atualizar a lista de elementos
 		despesas = c.getDespesasCadastradas();
 		numDespesas = c.getNumDespesas();
 		String[] s = new String[numDespesas];
@@ -107,6 +107,5 @@ public class ControleDespesa {
 	public int getId(int i) {
 		return despesas[i].getId();
 	}
-	
-	
+
 }

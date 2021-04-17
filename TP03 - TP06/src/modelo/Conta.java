@@ -17,6 +17,11 @@ public class Conta {
 		dono = d;
 	}
 	
+	//Sobrecarga de um método
+	public Conta (String n) {
+		nome = n;
+	}
+	
 	public void fillWithSomeData() {
 		Date d = Calendar.getInstance().getTime();
 		Recebimento r1 = new Recebimento(d, "Recebimento01", "Salário", 80, 0 ,this);
