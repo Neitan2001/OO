@@ -47,14 +47,17 @@ public class ControleRecebimento {
 	
 	public boolean removerRecebimento(int i, ControleConta controlC) {
 		Conta c = controlC.getConta();
-		int recebimentoRemovido = c.getDinheiroRecebido(i).getId();
 		
 		if(i == (c.getNumRecebimentos()-1)) { //Lógica inspirada no codigo da professora para verificar se o elemento está no final da array
+			int recebimentoRemovido = c.getDinheiroRecebido(i).getId();
 			c.setNumRecebimentos(c.getNumRecebimentos()-1);
 			c.setDinheiroRecebido(null, c.getNumRecebimentos());
 			controlC.calcularSaldo();
 			return true;
+		} else if(i > c.getNumRecebimentos()) { //Posição dada não possui elementos
+			return false;
 		} else { //O elemento está no meio da array
+			int recebimentoRemovido = c.getDinheiroRecebido(i).getId();
 			int cont = 0;
 			while(c.getDinheiroRecebido(cont).getId() != recebimentoRemovido) {
 				cont++;
