@@ -6,6 +6,13 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
+/**
+ * Classe da interface gráfica da tela de Entradas.
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (april 2021)
+ */
+
 public class TelaEntrada implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -21,6 +28,17 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 	private JList<String> listaDespesasCadastradas;
 	private String[] listaNomes = new String[50];
 	
+	/**
+	 * Contrutor da interface gráfica da tela de Entradas, recebe o controle recebimento, controle despesa e controla conta para fazer a comunicação entre os dados e recebe a opção de mostrar as despesas ou recebimentos.
+	 * @param r
+	 * parâmetro controle recebimento
+	 * @param d
+	 * parâmetro controle despesa
+	 * @param c
+	 * parâmetro controle conta
+	 * @param op
+	 * parâmetro opção
+	 */
 	public void mostrarDados(ControleRecebimento r, ControleDespesa d, ControleConta c ,int op) {
 		recebimentos = r;
 		despesas = d;
@@ -108,6 +126,13 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 			
 		}
 	
+	/**
+	 * Método para capturar os eventos relacionados aos botões da interface.
+	 * Botão Cadastro Recebimento: chama o método para fazer o cadastro de recebimento.
+	 * Botão Cadastro Despesa: chama o método para fazer o cadastro de despesa.
+	 * Botão Refresh Recebimento: atualiza a lista de recebimentos cadastrados.
+	 * Botão Refresh Despesa: atualiza a lista de despesas cadastradas.
+	 */
 	 public void actionPerformed(ActionEvent e) { //Captura eventos relacionados aos botoes da interface
 		 Object src = e.getSource();
 		 
@@ -135,7 +160,10 @@ public class TelaEntrada implements ActionListener, ListSelectionListener {
 				saldo.setText("O seu saldo é R$ " + controlC.getConta().getSaldo());
 			}
 	 }
-		//Captura eventos relacionados ao JList
+	 
+	 /**
+	  * Método para capturar os eventos relacionados ao JList. Ao clicar em um recebimento ou despesa, é aberto a tela de detalhe.
+	  */
 			public void valueChanged(ListSelectionEvent e) {
 				Object src = e.getSource();
 		

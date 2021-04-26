@@ -5,6 +5,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
+/**
+ * Classe da interface gráfica da tela de menu do programa.
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (april 2021)
+ */
+
 public class TelaMenu implements ActionListener {
 	private static JFrame janela = new JFrame("Controle Financeiro");
 	private static JLabel titulo = new JLabel("Menu Principal");
@@ -16,6 +23,9 @@ public class TelaMenu implements ActionListener {
 	public static ControleRecebimento Dadosrecebimento = new ControleRecebimento(controlC);
 	public static ControleDespesa Dadosdespesa = new ControleDespesa(controlC);
 	
+	/**
+	 * Construtor da interface gráfica da tela de menu.
+	 */
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(145, 10, 150, 30);
@@ -38,7 +48,6 @@ public class TelaMenu implements ActionListener {
 		janela.setVisible(true);
 	}
 	
-
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
 		
@@ -49,6 +58,9 @@ public class TelaMenu implements ActionListener {
 
 	}
 	
+	/**
+	 * Método para verificar qual butão foi apertado e direcionar para telas diferentes.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -73,7 +85,7 @@ public class TelaMenu implements ActionListener {
 					+ "Setembro: R$ " + controlC.calcularSaldoMes(8) + "\n"
 					+ "Outubro: R$ " + controlC.calcularSaldoMes(9) + "\n"
 					+ "Novembro: R$ " + controlC.calcularSaldoMes(10) + "\n"
-					+ "Dexembro: R$ " + controlC.calcularSaldoMes(11), null, 
+					+ "Dezembro: R$ " + controlC.calcularSaldoMes(11), null, 
 					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}

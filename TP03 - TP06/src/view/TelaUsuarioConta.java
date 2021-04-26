@@ -6,6 +6,13 @@ import javax.swing.*;
 import controle.*; 
 import modelo.*;
 
+/**
+ * Classe da interface gráfica da tela do usuário e conta.
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (april 2021)
+ */
+
 public class TelaUsuarioConta implements ActionListener {
 	private static JFrame janela = new JFrame("Informações");
 	private static JLabel titulo = new JLabel("Usuário e Conta");
@@ -22,7 +29,11 @@ public class TelaUsuarioConta implements ActionListener {
 	private static JButton salvar = new JButton("Salvar");
 	 
 	
-	
+	/**
+	 * Construtor da interface gráfica da tela do usuário e conta, recebe a classe controle conta para poder fazer a comunicação de dados.
+	 * @param c
+	 * parâmetro controle conta
+	 */
 	public  TelaUsuarioConta(ControleConta c) {
 		conta = c;
 		janela.setLayout(null);
@@ -70,6 +81,9 @@ public class TelaUsuarioConta implements ActionListener {
 		salvar.addActionListener(this);
 	}
 	
+	/**
+	 * Método para fazer a edição dos dados do usuário ao apertar o botão de salvar.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -101,12 +115,18 @@ public class TelaUsuarioConta implements ActionListener {
 	
 	}
 	
+	/**
+	 * Método para mostrar a mensagem de sucesso na edição
+	 */
 	public void mensagemSucessoEdicao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 	
+	/**
+	 * Método para mostrar a mensagem de erro na edição
+	 */
 	public void mensagemErroEdicao() {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
 				+ "Pode ter ocorrido um dos dois erros a seguir:  \n"

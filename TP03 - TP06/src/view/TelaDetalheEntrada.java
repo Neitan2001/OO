@@ -12,6 +12,13 @@ import javax.swing.event.ListSelectionListener;
 
 import controle.*;
 
+/**
+ * Classe da interface gráfica da tela de detalhe de Entradas.
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (april 2021)
+ */
+
 public class TelaDetalheEntrada implements ActionListener {
 	
 	private JFrame janela;
@@ -32,6 +39,21 @@ public class TelaDetalheEntrada implements ActionListener {
 	private int opcao;
 	private String s;
 	
+	/**
+	 * Contrutor da interface gráfica da tela de detalhe de Entradas, recebe o controle recebimento, controle despesa e controla conta para fazer a comunicação entre os dados e recebe a opção de mostrar as despesas ou recebimentos.
+	 * @param op
+	 * parâmetro opção
+	 * @param r
+	 * parâmetro controle recebimento
+	 * @param d
+	 * parâmetro controle despesa
+	 * @param c
+	 * parâmetro controle conta
+	 * @param p
+	 * parâmetro tela de entrada
+	 * @param pos
+	 * parâmetro posição
+	 */
 	public void inserirEditar(int op, ControleRecebimento r, ControleDespesa d, ControleConta c ,TelaEntrada p, int pos) {
 		
 		opcao = op;
@@ -101,6 +123,11 @@ public class TelaDetalheEntrada implements ActionListener {
 		
 	}
 	
+	/**
+	 * Método para capturar os eventos relacionados aos botões da interface.
+	 * Botão Salvar: verifica se está adicionando ou editando um elemento e faz a adição ou alteração dos dados.
+	 * Botão Excluir: exclui o elemento selecionado.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoSalvar) {
@@ -160,18 +187,27 @@ public class TelaDetalheEntrada implements ActionListener {
 		}
 	}
 	
+	/**
+	 * Método para mostrar mensagem de sucesso de exclusão do elemento.
+	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/**
+	 * Método para mostrar mensagem de sucesso de cadastro do elemento.
+	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/**
+	 * Método para mostrar mensagem de erro no cadastro do elemento.
+	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
 				+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
@@ -180,6 +216,9 @@ public class TelaDetalheEntrada implements ActionListener {
 				JOptionPane.ERROR_MESSAGE);
 	}
 	
+	/**
+	 * Método para mostrar mensagem de erro na exclusão do elemento.
+	 */
 	public void mensagemErroExclusao() {
 		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n ", null, 
 				JOptionPane.ERROR_MESSAGE);
