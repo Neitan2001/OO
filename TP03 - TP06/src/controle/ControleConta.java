@@ -2,12 +2,21 @@ package controle;
 
 import modelo.*;
 
+/**
+ * Classe controladora da Conta do usuário
+ * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @version 1.0 (march 2021)
+ */
+
 public class ControleConta {
 	private ControleUsuario controlU = new ControleUsuario();
 	private Usuario u = controlU.getUsuario();
 	private Conta c = new Conta("Nome padrão", u);
 	
 	
+/**
+ * Contrutor da classe controlado da conta. Ao ser instanciado, a classe controladora executa o método para preencher o programa com alguns dados e calcula o saldo da conta.
+ */
 	public ControleConta() {
 		c.fillWithSomeData();
 		calcularSaldo();
@@ -25,6 +34,12 @@ public class ControleConta {
 		return controlU;
 	}
 	
+	/**
+	 * Método para calcular o saldo de um mês específico da conta
+	 * @param m
+	 * parâmetro mês
+	 * @return retorna um Double que é o saldo do usuário em certo mês
+	 */
 	public Double calcularSaldoMes(int m) {
 		int mes = m;
 		double dinR = 0;

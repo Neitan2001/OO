@@ -1,6 +1,12 @@
 package modelo;
 import java.util.Date;
 
+/**
+ * Modela de classe abstrata que origina as classes Recebimento e Despesa
+ * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @version 1.0 (March 2021)
+ */
+
 public abstract class Entrada {
 	protected Date data;
 	protected String descricao;

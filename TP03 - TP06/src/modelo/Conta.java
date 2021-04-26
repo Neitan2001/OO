@@ -3,6 +3,12 @@ package modelo;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Classe modeladora da Conta do usuário
+ * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @version 1.0 (march 2021)
+ */
+
 public class Conta {
 	private String nome;
 	private Usuario dono;
@@ -12,6 +18,13 @@ public class Conta {
 	private int numDespesas = 0;
 	private int numRecebimentos = 0;
 	
+	/**
+	 * Construtor da classe modeladora da Conta, ela recebe o nome da conta e o usuário dono.
+	 * @param n
+	 * parâmetro nome
+	 * @param d
+	 * parâmetro dono
+	 */
 	public Conta (String n, Usuario d) {
 		nome = n;
 		dono = d;
@@ -22,6 +35,9 @@ public class Conta {
 		nome = n;
 	}
 	
+	/**
+	 * Método para preencher o programa com alguns dados a fim de testar o mesmo.
+	 */
 	public void fillWithSomeData() {
 		Date d = Calendar.getInstance().getTime();
 		Recebimento r1 = new Recebimento(d, "Recebimento01", "Salário", 80, 0 ,this);
@@ -81,6 +97,13 @@ public class Conta {
 		this.recebimentosCadastrados[i] = dinR;
 	}
 	
+	/**
+	 * Método para fazer a adição ou edição de recebimentos na conta do usuário. O método verifica se é uma adição por comparar a posição do recebimento com a quantidade de recebimentos e se for igual, implementa mais um na quantidade
+	 * @param r
+	 * parâmetro Recebimento
+	 * @param pos
+	 * parâmetro posição do recebimento
+	 */
 	public void inserirEditarRecebimento(Recebimento r, int pos) {
 		this.recebimentosCadastrados[pos] = r;
 		if(pos == numRecebimentos) numRecebimentos++;
@@ -102,6 +125,13 @@ public class Conta {
 		this.despesasCadastradas[i] = dinG;
 	}
 	
+	/**
+	 * Método para fazer a adição ou edição de despesa na conta do usuário. O método verifica se é uma adição por comparar a posição do recebimento com a quantidade de recebimentos e se for igual, implementa mais um na quantidade
+	 * @param d
+	 * parâmetro despesa
+	 * @param pos
+	 * parâmetro posição da despesa
+	 */
 	public void inserirEditarDespesa(Despesa d, int pos) {
 		this.despesasCadastradas[pos] = d;
 		if(pos == numDespesas) numDespesas++;
