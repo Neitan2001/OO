@@ -3,7 +3,8 @@ import java.util.Date;
 
 /**
  * Modela de classe abstrata que origina as classes Recebimento e Despesa
- * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
  * @version 1.0 (March 2021)
  */
 

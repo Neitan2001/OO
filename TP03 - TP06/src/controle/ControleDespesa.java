@@ -4,11 +4,23 @@ import modelo.*;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Classe controladora da despesa do usuário
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (march 2021)
+ */
+
 public class ControleDespesa {
 	private Despesa[] despesas;
 	private int numDespesas;
 	private Conta c;
 	
+	/**
+	 * Construtor da classe controladora de despesa. Recebe a conta do usuário e pega as despesas e a quantidade de despesas dela.
+	 * @param controlC
+	 * parâmetro conta
+	 */
 	public ControleDespesa(ControleConta controlC) {
 		Conta c = controlC.getConta();
 		despesas = c.getDespesasCadastradas();
@@ -16,10 +28,20 @@ public class ControleDespesa {
 		
 	}
 	
-	// dados[0] = posição
-	// dados[1] = Descrição
-	// dados[2] = tipo
-	// dados[3] = Dinheiro Gasto
+	/**
+	 * Método para adicionar ou editar despesa, recebe uma string de dados, a conta e a opção do método (Adicionar ou Editar). A orden dos dados na string é:
+	 * dados[0] = posição
+	 * dados[1] = Descrição
+	 * dados[2] = tipo
+	 * dados[3] = Dinheiro Gasto
+	 * @param dadosDespesa
+	 * parâmetro dados da despesa
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @param op
+	 * parâmetro opção
+	 * @return retorna um booleano, falso se tiver algum erro ou verdadeiro se tiver dado certo.
+	 */
 	public boolean adicionarEditarDespesa(String[] dadosDespesa, ControleConta controlC, int op) {
 		Conta c = controlC.getConta();
 		
@@ -44,6 +66,14 @@ public class ControleDespesa {
 
 	}
 	
+	/**
+	 * Método para remover a despesa da conta do usuário. Recebe a posição da despesa na array de despesas e a conta do usuário.
+	 * @param i
+	 * parâmetro posição
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @return retorna um booleano, falso se tiver algum erro ou verdadeiro se tiver dado certo. 
+	 */
 	public boolean removerDespesa(int i, ControleConta controlC) {
 		Conta c = controlC.getConta();
 		
@@ -74,6 +104,12 @@ public class ControleDespesa {
 		}
 	}
 	
+	/**
+	 * Método para pegar as descrições das despesas cadastradas. Recebe a conta do usuário.
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @return retorna uma string de descrições para ser exibida na lista de despesas cadastradas.
+	 */
 	public String[] getDescricoesValor(ControleConta controlC) {
 		Conta c = controlC.getConta(); //Sempre que for pegar as descrições, é necessário atualizar a lista de elementos
 		despesas = c.getDespesasCadastradas();

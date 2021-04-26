@@ -3,7 +3,8 @@ import java.util.Date;
 
 /**
  * Classe modeladora das Despesas do usuário
- * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
  * @version 1.0 (march 2021)
  */
 

@@ -5,6 +5,13 @@ import java.util.Date;
 
 import modelo.*;
 
+/**
+ * Classe controladora do usuário
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (march 2021)
+ */
+
 public class ControleUsuario {
     private Usuario u = new Usuario("Nome", 20, 39283471);
 
@@ -12,7 +19,14 @@ public class ControleUsuario {
         return u;
     }
     
-    // Método para editar informações do usuário. Atualmente há um bug que ainda não consegui consertar que depois de editar uma vez, o programa aceita informações do tipo errado
+    /**
+     * Método para editar informações do usuário. Atualmente há um bug que ainda não conseguimos consertar que depois de editar uma vez, o programa aceita informações do tipo errado
+     * @param dadosUsuario
+     * parâmetro dados do usuário
+     * @param controlC
+     * parâmetro controle conta
+     * @return retorna um booleano, falso se tiver algum erro ou verdadeiro se tiver dado certo.
+     */
     public boolean EditarUsuario(String[] dadosUsuario, ControleConta controlC) {
 		ControleConta c = controlC;
 		if(!dadosUsuario[1].matches("[0-9]+") || !dadosUsuario[2].matches("[0-9]+") ) {

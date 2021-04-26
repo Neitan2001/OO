@@ -4,7 +4,8 @@ import modelo.*;
 
 /**
  * Classe controladora da Conta do usuário
- * @author Natan Tavares Santana and Isaac Menezes Pereira
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
  * @version 1.0 (march 2021)
  */
 
@@ -68,6 +69,9 @@ public class ControleConta {
 		return saldoMes;
 	}
 	
+	/**
+	 * Método para calcular o saldo total do usuário
+	 */
 	// Método para calcular o Saldo Total da Conta
 	public void calcularSaldo() {
 		double dinR = 0;

@@ -4,11 +4,23 @@ import modelo.*;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Classe controladora do recebimento do usuário
+ * @author Natan Tavares Santana
+ * @author Isaac Menezes Pereira
+ * @version 1.0 (march 2021)
+ */
+
 public class ControleRecebimento {
 	private Recebimento[] recebimentos;
 	private int numRecebimentos;
 	private Conta c;
 	
+	/**
+	 * Construtor da classe controladora de recebimento. Recebe a conta do usuário e pega os recebimentos e a quantidade de recebimentos dela.
+	 * @param controlC
+	 * parâmetro conta
+	 */
 	public ControleRecebimento(ControleConta controlC) {
 		Conta c = controlC.getConta();
 		recebimentos = c.getRecebimentosCadastrados();
@@ -16,10 +28,20 @@ public class ControleRecebimento {
 		
 	}
 	
-	// dados[0] = posição
-	// dados[1] = Descrição
-	// dados[2] = tipo
-	// dados[3] = Dinheiro Recebido
+	/**
+	 * Método para adicionar ou editar recebimento, recebe uma string de dados, a conta e a opção do método (Adicionar ou Editar). A orden dos dados na string é:
+	 * dados[0] = posição
+	 * dados[1] = Descrição
+	 * dados[2] = tipo
+	 * dados[3] = Dinheiro Recebido
+	 * @param dadosRecebimento
+	 * parâmetro dados do recebimento
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @param op
+	 * parâmetro opção
+	 * @return retorna um booleano, falso se tiver algum erro ou verdadeiro se tiver dado certo.
+	 */
 	public boolean adicionarEditarRecebimento(String[] dadosRecebimento, ControleConta controlC, int op) {
 		Conta c = controlC.getConta();
 		
@@ -45,6 +67,14 @@ public class ControleRecebimento {
 
 	}
 	
+	/**
+	 * Método para remover o recebimento da conta do usuário. Recebe a posição do recebimento na array de recebimentos e a conta do usuário.
+	 * @param i
+	 * parâmetro posição
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @return retorna um booleano, falso se tiver algum erro ou verdadeiro se tiver dado certo. 
+	 */
 	public boolean removerRecebimento(int i, ControleConta controlC) {
 		Conta c = controlC.getConta();
 		
@@ -75,6 +105,12 @@ public class ControleRecebimento {
 		}
 	}
 	
+	/**
+	 * Método para pegar as descrições dos recebimentos cadastrados. Recebe a conta do usuário.
+	 * @param controlC
+	 * parâmetro controle conta
+	 * @return retorna uma string de descrições para ser exibida na lista de recebimentos cadastrados.
+	 */
 	public String[] getDescricoesValor(ControleConta controlC) {
 		Conta c = controlC.getConta();
 		recebimentos = c.getRecebimentosCadastrados(); //Sempre que for pegar as descrições, é necessário atualizar a lista de elementos
